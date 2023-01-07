@@ -1,0 +1,26 @@
+{
+  "name": "multiverse_workshop_project_two",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "start-dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielSWaite190/multiverse_workshop_project_two.git"
+  },
+  "author": "Daniel S. Waite",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielSWaite190/multiverse_workshop_project_two/issues"
+  },
+  "homepage": "https://github.com/DanielSWaite190/multiverse_workshop_project_two#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
