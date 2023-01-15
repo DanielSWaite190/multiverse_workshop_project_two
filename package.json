@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/DanielSWaite190/multiverse_workshop_project_two#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql2": "^3.0.1",
+    "sequelize": "^6.28.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
