@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const { User } = require('./models/User');
-const { Ring } = require('./models/Ring');
-const db = require('./models')
+const { User } = require('./db/User');
+const { Ring } = require('./db/Ring');
+const db = require('./db/db')
 app.use(express.json());
 
 
