@@ -2,13 +2,14 @@ const express = require('express');
 const app = express();
 const { User } = require('./db/User');
 const { Ring } = require('./db/Ring');
-const db = require('./db/db')
+const bcrypt = require('bcrypt');
+// const db = require('./db/db')
 app.use(express.json());
 
 
-(async ()=> {
-  await db.sequelize.sync();
-})();
+// (async ()=> {
+//   await db.sequelize.sync();
+// })();
 
 
 app.get('/', (req, res) => {
@@ -32,14 +33,26 @@ const setUser = async (req, res, next) => {
       next();
   }
 }
-app.post('/', setUser, async (req, res) =>{
+
+app.get('/user', setUser, async (req, res) => {
+  res.send(await User.findAll())
+})
+
+app.post('/user', setUser, async (req, res) =>{
   if(!req.user)
     res.sendStatus(401)
   else{
-    const {name, password} = req.body;
-    const user = await User.create({name, password});
+    const {username, password} = req.body;
+    const hashedPw = await bcrypt.hash(password, 10);
+    const user = await User.create({username, password: hashedPw});
     res.status(201).send(user);
   }  
+})
+
+app.delete('/user/:id', setUser, async (req, res) => {
+  const user = await User.findByPk(req.params.id)
+  await user.destroy()
+  res.send(`${user.username} was removed from the database.`)
 })
 
 app.post('/ring', setUser, async (req, res) =>{
