@@ -19,7 +19,9 @@
   "homepage": "https://github.com/DanielSWaite190/multiverse_workshop_project_two#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.0.1",
     "sequelize": "^6.28.0",
     "sqlite3": "^5.1.4"
