@@ -9,6 +9,13 @@ dotenv.config({ path: '.env' });
 
 const JWT_SECRET = process.env.JWT_SECRET;
 app.use(express.json());
+//-----------------------------------------//
+const db = require('./models');
+
+
+//(async () => {
+//  await db.sequelize.sync();
+//})();
 
 
 const setUser = async (req, res, next) => {
