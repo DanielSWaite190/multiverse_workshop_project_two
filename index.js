@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
-const { User } = require('./db');
-const { Ring } = require('./db');
+// const { User } = require('./db');
+// const { Ring } = require('./db');
+const { User } = require('./config/models/index');
+const { Ring } = require('./config/models/index');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
@@ -10,12 +12,12 @@ dotenv.config({ path: '.env' });
 const JWT_SECRET = process.env.JWT_SECRET;
 app.use(express.json());
 //-----------------------------------------//
-const db = require('./models');
+const db = require('./config/models');
 
 
-//(async () => {
+// (async () => {
 //  await db.sequelize.sync();
-//})();
+// })();
 
 
 const setUser = async (req, res, next) => {
