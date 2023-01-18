@@ -7,9 +7,6 @@ module.exports = (sequelize, DataTypes) => {
         array: DataTypes.INTEGER,
         anchor: DataTypes.STRING,
         operational: DataTypes.INTEGER
-    },
-    {
-
     });
     return Ring;
 };
