@@ -2,14 +2,13 @@ const express = require('express');
 const app = express();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
 const { models: { User } } = require('./models')
 const { models: { Ring } } = require('./models')
+const dotenv = require('dotenv');
 dotenv.config({ path: '.env' });
-
 const JWT_SECRET = process.env.JWT_SECRET;
-app.use(express.json());
 
+app.use(express.json());
 const setUser = async (req, res, next) => {
   if(!req.header('Authorization'))
     next()
