@@ -31,14 +31,14 @@ app.get('/user/', setUser, async (req, res) => {
     res.send(await User.findAll())
 })
 
-app.post('/user/', async (req, res) =>{
+app.post('/user/register', async (req, res) =>{  // <--- Register route
   const {username, password} = req.body;
   const hashedPw = await bcrypt.hash(password, 10);
   const user = await User.create({username, password: hashedPw});
   res.status(201).send(user);
 })
 
-app.delete('/user/:id', setUser, async (req, res) => {
+app.delete('/user/:id', setUser, async (req, res) => { // <--- update route
   const user = await User.findByPk(req.params.id)
   if(!req.user || req.user.id != user.id)
     res.sendStatus(401)
@@ -48,7 +48,7 @@ app.delete('/user/:id', setUser, async (req, res) => {
   }
 })
 
-app.post('/login', async (req, res) => {
+app.post('/user/login', async (req, res) => {  // <---  user / login 
   const username = req.body.username
   const [foundUser] = await User.findAll({where: {username}});
   if(!foundUser){
